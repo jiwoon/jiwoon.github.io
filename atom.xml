@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhiwu.li/"/>
-  <updated>2018-09-28T12:38:20.578Z</updated>
+  <updated>2018-09-28T14:09:16.067Z</updated>
   <id>http://zhiwu.li/</id>
   
   <author>
@@ -17,11 +17,32 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>blog</title>
+    <link href="http://zhiwu.li/2018/09/28/blog/"/>
+    <id>http://zhiwu.li/2018/09/28/blog/</id>
+    <published>2018-09-28T13:52:19.000Z</published>
+    <updated>2018-09-28T14:09:16.067Z</updated>
+    
+    <content type="html"><![CDATA[<p>正文<br>以下修改保存后均可通过hexo g &amp;&amp; hexo s指令在本地<a href="http://localhost:4000查看修改，另外通过hexo" target="_blank" rel="noopener">http://localhost:4000查看修改，另外通过hexo</a> d发布到GitHub pages 或 Coding pages上面通过绑定的域名在线查看效果。</p><p>实用性优化<br>基本使用<br>上一篇文章已经讲过如何安装Hexo，不了解的小伙伴可以参考一下我的上一篇文章，或者访问Hexo文档来了解如何安装Hexo。</p><p>在Hexo中有两个很重要的名为_config.yml的文件，其中一个在站点安装的根目录下，另一个在主题目录下。前者提供了Hexo自身的一些基本配置信息，后者为你所安装的主题的相关配置。为了方便区分，我们把前者称为站点配置文件，后者称为主题配置文件。</p><p>站点配置文件<br>文件路径站点根目录/_config.yml，编辑软件推荐使用Sublime Text 。<br>这里贴一下个人的部分配置，可以改一下相关内容自行体会一下效果：</p><h1 id="Site"><a href="#Site" class="headerlink" title="Site"></a>Site</h1><p>作者：Alvabill<br>链接：<a href="https://www.jianshu.com/p/1f8107a8778c" target="_blank" rel="noopener">https://www.jianshu.com/p/1f8107a8778c</a><br>來源：简书<br>简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;正文&lt;br&gt;以下修改保存后均可通过hexo g &amp;amp;&amp;amp; hexo s指令在本地&lt;a href=&quot;http://localhost:4000查看修改，另外通过hexo&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://localhos
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
     <link href="http://zhiwu.li/2018/09/28/hello-world/"/>
     <id>http://zhiwu.li/2018/09/28/hello-world/</id>
     <published>2018-09-28T03:29:58.448Z</published>
-    <updated>2018-09-28T12:38:20.578Z</updated>
+    <updated>2018-09-28T13:41:23.116Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
     
@@ -34,6 +55,10 @@
     
     </summary>
     
+    
+      <category term="hexo" scheme="http://zhiwu.li/tags/hexo/"/>
+    
+      <category term="xxx" scheme="http://zhiwu.li/tags/xxx/"/>
     
   </entry>
   
