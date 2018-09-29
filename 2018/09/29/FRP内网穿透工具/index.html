@@ -85,18 +85,18 @@
 
 
 
-<meta name="description" content="FRP内网穿透工具  简介 frp 是一个可用于内网穿透的高性能的反向代理应用，支持 tcp, udp, http, https 协议。  利用处于内网或防火墙后的机器，对外网环境提供 http 或 https 服务。 对于 http, https 服务支持基于域名的虚拟主机，支持自定义域名绑定，使多个域名可以共用一个80端口。 利用处于内网或防火墙后的机器，对外网环境提供 tcp 和 udp">
+<meta name="description" content="FRP内网穿透工具 简介 frp 是一个可用于内网穿透的高性能的反向代理应用，支持 tcp, udp, http, https 协议。  利用处于内网或防火墙后的机器，对外网环境提供 http 或 https 服务。 对于 http, https 服务支持基于域名的虚拟主机，支持自定义域名绑定，使多个域名可以共用一个80端口。 利用处于内网或防火墙后的机器，对外网环境提供 tcp 和 udp 服务">
 <meta name="keywords" content="go">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FRP内网穿透工具">
 <meta property="og:url" content="http://zhiwu.li/2018/09/29/FRP内网穿透工具/index.html">
 <meta property="og:site_name" content="我的知识收集博客">
-<meta property="og:description" content="FRP内网穿透工具  简介 frp 是一个可用于内网穿透的高性能的反向代理应用，支持 tcp, udp, http, https 协议。  利用处于内网或防火墙后的机器，对外网环境提供 http 或 https 服务。 对于 http, https 服务支持基于域名的虚拟主机，支持自定义域名绑定，使多个域名可以共用一个80端口。 利用处于内网或防火墙后的机器，对外网环境提供 tcp 和 udp">
+<meta property="og:description" content="FRP内网穿透工具 简介 frp 是一个可用于内网穿透的高性能的反向代理应用，支持 tcp, udp, http, https 协议。  利用处于内网或防火墙后的机器，对外网环境提供 http 或 https 服务。 对于 http, https 服务支持基于域名的虚拟主机，支持自定义域名绑定，使多个域名可以共用一个80端口。 利用处于内网或防火墙后的机器，对外网环境提供 tcp 和 udp 服务">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-09-29T05:17:53.688Z">
+<meta property="og:updated_time" content="2018-09-29T05:51:41.896Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FRP内网穿透工具">
-<meta name="twitter:description" content="FRP内网穿透工具  简介 frp 是一个可用于内网穿透的高性能的反向代理应用，支持 tcp, udp, http, https 协议。  利用处于内网或防火墙后的机器，对外网环境提供 http 或 https 服务。 对于 http, https 服务支持基于域名的虚拟主机，支持自定义域名绑定，使多个域名可以共用一个80端口。 利用处于内网或防火墙后的机器，对外网环境提供 tcp 和 udp">
+<meta name="twitter:description" content="FRP内网穿透工具 简介 frp 是一个可用于内网穿透的高性能的反向代理应用，支持 tcp, udp, http, https 协议。  利用处于内网或防火墙后的机器，对外网环境提供 http 或 https 服务。 对于 http, https 服务支持基于域名的虚拟主机，支持自定义域名绑定，使多个域名可以共用一个80端口。 利用处于内网或防火墙后的机器，对外网环境提供 tcp 和 udp 服务">
 
 
 
@@ -372,7 +372,7 @@
       
 
       
-        <p><strong> FRP内网穿透工具 </strong></p>
+        <p><strong>FRP内网穿透工具</strong></p>
 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p> <strong>frp 是一个可用于内网穿透的高性能的反向代理应用，支持 tcp, udp, http, https 协议。</strong></p>
 <ul>
 <li>利用处于内网或防火墙后的机器，对外网环境提供 http 或 https 服务。</li>
@@ -386,7 +386,7 @@
 bind_port = 7000
 </code></pre><p>启动 frps：</p>
 <pre><code>./frps -c ./frps.ini
-</code></pre><p>修改 frpc.ini 文件，假设 frps 所在服务器的公网 IP 为 x.x.x.x；<br> frpc.ini</p>
+</code></pre><p>修改 frpc.ini 文件，假设 frps 所在服务器的公网 IP 为 x.x.x.x；frpc.ini</p>
 <pre><code>[common]
 server_addr = x.x.x.x
 server_port = 7000
