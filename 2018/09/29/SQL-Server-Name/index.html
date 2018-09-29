@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="SQL," />
 
 
 
@@ -85,13 +85,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的博客">
-<meta property="og:url" content="http://zhiwu.li/index.html">
+<meta name="description" content="在SQL Server 2005/2008安装后，即记录了计算机名做为 “sql server服务器名”.当修改计算机名时， 需要修改sql server中对应的服务器名， 否则将影响“发布/订阅”，“镜像集群”等功能。 – 检查SQL Server中的“服务器名[/命名实例名]”, 和当前真实的“计算机名[/命名实例名]”。如果修改了计算机名，则这两者即会不一致。 select @@server">
+<meta name="keywords" content="SQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL Server 服务器名">
+<meta property="og:url" content="http://zhiwu.li/2018/09/29/SQL-Server-Name/index.html">
 <meta property="og:site_name" content="我的博客">
+<meta property="og:description" content="在SQL Server 2005/2008安装后，即记录了计算机名做为 “sql server服务器名”.当修改计算机名时， 需要修改sql server中对应的服务器名， 否则将影响“发布/订阅”，“镜像集群”等功能。 – 检查SQL Server中的“服务器名[/命名实例名]”, 和当前真实的“计算机名[/命名实例名]”。如果修改了计算机名，则这两者即会不一致。 select @@server">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-09-29T01:11:29.932Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的博客">
+<meta name="twitter:title" content="SQL Server 服务器名">
+<meta name="twitter:description" content="在SQL Server 2005/2008安装后，即记录了计算机名做为 “sql server服务器名”.当修改计算机名时， 需要修改sql server中对应的服务器名， 否则将影响“发布/订阅”，“镜像集群”等功能。 – 检查SQL Server中的“服务器名[/命名实例名]”, 和当前真实的“计算机名[/命名实例名]”。如果修改了计算机名，则这两者即会不一致。 select @@server">
 
 
 
@@ -121,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://zhiwu.li/"/>
+  <link rel="canonical" href="http://zhiwu.li/2018/09/29/SQL-Server-Name/"/>
 
 
 
 
 
-  <title>我的博客</title>
+  <title>SQL Server 服务器名 | 我的博客</title>
   
 
 
@@ -146,8 +151,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -250,9 +254,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -282,9 +286,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/29/SQL-Server-Name/" itemprop="url">SQL Server 服务器名</a></h1>
+          <h1 class="post-title" itemprop="name headline">SQL Server 服务器名</h1>
         
 
         <div class="post-meta">
@@ -315,6 +317,11 @@
           
           
 
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
           
 
           
@@ -365,14 +372,10 @@
       
 
       
-        
-          
-            <p>在SQL Server 2005/2008安装后，即记录了计算机名做为 “sql server服务器名”.<br>当修改计算机名时， 需要修改sql server中对应的服务器名， 否则将影响“发布/订阅”，“镜像集群”等功能。</p>
+        <p>在SQL Server 2005/2008安装后，即记录了计算机名做为 “sql server服务器名”.<br>当修改计算机名时， 需要修改sql server中对应的服务器名， 否则将影响“发布/订阅”，“镜像集群”等功能。</p>
 <p>– 检查SQL Server中的“服务器名[/命名实例名]”, 和当前真实的“计算机名[/命名实例名]”。如果修改了计算机名，则这两者即会不一致。</p>
 <p>select @@serverName,  serverproperty(‘serverName’)<br>– 将”服务器名”, 修改为正确的计算机名<br>EXEC sp_dropserver ‘服务器名[/命名实例名]’;           – 即旧的计算机名<br>GO<br>EXEC sp_addserver ‘计算机名[/命名实例名]’, ‘local’; – 即新的计算机名<br>go<br>– 重启SQL Server</p>
 
-          
-        
       
     </div>
     
@@ -380,6 +383,8 @@
     
     
     <div>
+      
+        
       
     </div>
 
@@ -391,336 +396,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiwu.li/2018/09/28/blog/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lizhiwu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/28/blog/" itemprop="url">blog</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-28T21:52:19+08:00">
-                2018-09-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/SQL/" rel="tag"># SQL</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  319
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>正文<br>以下修改保存后均可通过hexo g &amp;&amp; hexo s指令在本地<a href="http://localhost:4000查看修改，另外通过hexo" target="_blank" rel="noopener">http://localhost:4000查看修改，另外通过hexo</a> d发布到GitHub pages 或 Coding pages上面通过绑定的域名在线查看效果。</p>
-<p>实用性<em>**</em>优化<br>基本使用<br>上一篇文章已经讲过如何安装Hexo，不了解的小伙伴可以参考一下我的上一篇文章，或者访问Hexo文档来了解如何安装Hexo。</p>
-<p>在Hexo中有两个很重要的名为_config.yml的文件，其中一个在站点安装的根目录下，另一个在主题目录下。前者提供了Hexo自身的一些基本配置信息，后者为你所安装的主题的相关配置。为了方便区分，我们把前者称为站点配置文件，后者称为主题配置文件。</p>
-<p>站点配置文件<br>文件路径站点根目录/_config.yml，编辑软件推荐使用Sublime Text 。<br>这里贴一下个人的部分配置，可以改一下相关内容自行体会一下效果：</p>
-<h1 id="Site"><a href="#Site" class="headerlink" title="Site"></a>Site</h1><p>作者：Alvabill<br>链接：<a href="https://www.jianshu.com/p/1f8107a8778c" target="_blank" rel="noopener">https://www.jianshu.com/p/1f8107a8778c</a><br>來源：简书<br>简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-    
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiwu.li/2018/09/28/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lizhiwu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/28/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-28T11:29:58+08:00">
-                2018-09-28
-              </time>
+              <a href="/2018/09/28/blog/" rel="next" title="blog">
+                <i class="fa fa-chevron-left"></i> blog
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  73
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-    
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -730,10 +435,17 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bae240e1ca5dda9" async = "async" ></script>
+</div>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -741,6 +453,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MDAxMi8xNjUzOQ=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -1010,6 +731,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -1038,6 +763,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
