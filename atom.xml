@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhiwu.li/"/>
-  <updated>2018-09-29T02:08:20.939Z</updated>
+  <updated>2018-09-29T02:40:34.838Z</updated>
   <id>http://zhiwu.li/</id>
   
   <author>
@@ -17,11 +17,31 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>sa无法在当前安全上下文下访问数据库</title>
+    <link href="http://zhiwu.li/2018/09/29/sa%E6%97%A0%E6%B3%95%E5%9C%A8%E5%BD%93%E5%89%8D%E5%AE%89%E5%85%A8%E4%B8%8A%E4%B8%8B%E6%96%87%E4%B8%8B%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    <id>http://zhiwu.li/2018/09/29/sa无法在当前安全上下文下访问数据库/</id>
+    <published>2018-09-29T02:40:18.000Z</published>
+    <updated>2018-09-29T02:40:34.838Z</updated>
+    
+    <content type="html"><![CDATA[<p>﻿<strong>服务器主体 “sa” 无法在当前安全上下文下访问数据库 “db1”。</strong><br>            <em>sql2008同一服务器附加两个数据库 db1 和db2<br>            db1中建一表A，和一个存储过程A<br>            db2中建有一表B，表B上有一个触发器（insert 触发），和一个存储过程B.<br>            我用管理员sa 用户登录，执行存储过程B，向表B中写入一条数据，在B表的触发器中调用数据库db1中的存储过程A，<br>            触发器中的调用格式为：<br>            exec db1.dbo.A 参数1,参数2，….<br>            结果出现<br>            消息 916，级别 14，状态 1，过程 TRGDetialsData，第 47 行<br>            服务器主体 “sa” 无法在当前安全上下文下访问数据库 “db1”。<br>            我的sa用户已经是最高权限了，为什么还有这个提示<br>            到底如何在触发器中调用另外一个数据库（同一服务器）中的存储过程</em><br><a id="more"></a><br>            ——解决方案——————–<br>            先执行以下打开TRUSTWORTHY.</p><pre><code>SQL code ALTER DATABASE db1 SET TRUSTWORTHY ON ALTER DATABASE db2 SET TRUSTWORTHY ON再执行这个,Use MasterGOEXEC master.dbo.sp_configure &apos;show advanced options&apos;, 1RECONFIGURE WITH OVERRIDEGOEXEC master.dbo.sp_configure &apos;xp_cmdshell&apos;, 1  --for backup sp LZWMISDBBackupRECONFIGURE WITH OVERRIDEGOALTER DATABASE ReportConfigDJ SET TRUSTWORTHY ON     --for use WWALMDB sp APV_GetAlarmDescFromWWALMDB</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;﻿&lt;strong&gt;服务器主体 “sa” 无法在当前安全上下文下访问数据库 “db1”。&lt;/strong&gt;&lt;br&gt;            &lt;em&gt;sql2008同一服务器附加两个数据库 db1 和db2&lt;br&gt;            db1中建一表A，和一个存储过程A&lt;br&gt;            db2中建有一表B，表B上有一个触发器（insert 触发），和一个存储过程B.&lt;br&gt;            我用管理员sa 用户登录，执行存储过程B，向表B中写入一条数据，在B表的触发器中调用数据库db1中的存储过程A，&lt;br&gt;            触发器中的调用格式为：&lt;br&gt;            exec db1.dbo.A 参数1,参数2，….&lt;br&gt;            结果出现&lt;br&gt;            消息 916，级别 14，状态 1，过程 TRGDetialsData，第 47 行&lt;br&gt;            服务器主体 “sa” 无法在当前安全上下文下访问数据库 “db1”。&lt;br&gt;            我的sa用户已经是最高权限了，为什么还有这个提示&lt;br&gt;            到底如何在触发器中调用另外一个数据库（同一服务器）中的存储过程&lt;/em&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="SQL" scheme="http://zhiwu.li/tags/SQL/"/>
+    
+  </entry>
+  
+  <entry>
     <title>SQL Server Assembly还原数据库后的问题</title>
     <link href="http://zhiwu.li/2018/09/29/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%98%E5%8E%9F%E9%97%AE%E9%A2%98/"/>
     <id>http://zhiwu.li/2018/09/29/数据库还原问题/</id>
     <published>2018-09-29T01:16:55.000Z</published>
-    <updated>2018-09-29T02:08:20.939Z</updated>
+    <updated>2018-09-29T02:12:00.148Z</updated>
     
     <content type="html"><![CDATA[<h1 id="SQL-Server-Assembly还原数据库后的问题"><a href="#SQL-Server-Assembly还原数据库后的问题" class="headerlink" title="SQL Server Assembly还原数据库后的问题"></a>SQL Server Assembly还原数据库后的问题</h1><p>　　前段时间给别人做迁移数据库时候,遇到一些问题.大致是,如果备份的数据库存在EXTERNAL_ACCESS 和UNSAFE的程序集,那么在还原的时候程序集会出现一些奇怪的错误:</p><p>　　消息 10314，级别 16，状态 11，第 1 行</p><p>　　在尝试加载程序集 ID 65536 时 Microsoft .NET Framework 出错。服务器可能资源不足，或者不信任该程序集，因为它的 PERMISSION_SET 设置为 EXTERNAL_ACCESS 或 UNSAFE。请重新运行查询，或检查有关的文档了解如何解决程序集信任问题。有关此错误的详细信息:<br><a id="more"></a><br>　　System.IO.FileLoadException: 未能加载文件或程序集“testclr, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null”或它的某一个依赖项。异常来自 HRESULT:0x80FC80F1<br>　　System.IO.FileLoadException: </p><p>　　在 System.Reflection.Assembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, Assembly locationHint, StackCrawlMark&amp; stackMark, Boolean throwOnFileNotFound, Boolean forIntrospection) </p><p>　　在 System.Reflection.Assembly.InternalLoad(AssemblyName assemblyRef, Evidence assemblySecurity, StackCrawlMark&amp; stackMark, Boolean forIntrospection) </p><p>　　在 System.Reflection.Assembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark&amp; stackMark, Boolean forIntrospection) </p><p>　　在 System.Reflection.Assembly.Load(String assemblyString)</p><p>　　至于产生的原因大概是,在备份数据库的时候,在机器A,那么数据库的拥有者是A\Administrator(如果用windows登录创建),那么但是我们还原到服务器B,那么拥有者可能是B\Administrator,那么SQL CLR的安全性会认为该程序集不可靠.</p><p>　　例如:</p><p>　　我首先创建一个简单的SQL CLR 存储过程:</p><p>　　using System;using System.Data;<br>　　using System.Data.SqlClient;<br>　　using System.Data.SqlTypes;<br>　　using Microsoft.SqlServer.Server;<br>　　public partial class StoredProcedures{<br>　　 [Microsoft.SqlServer.Server.SqlProcedure]<br>　　publicstaticvoid Test()    {<br>　　// 在此处放置代码    }};编译创建程序集.</p><p>　　在机器A上的数据库上执行:</p><p>　　CREATE DATABASE test;<br>　　USE test;<br>　　ALTER DATABASE test SET TRUSTWORTHY ON;<br>　　CREATE ASSEMBLY [TestCLR] FROM ‘E:\Documents\Visual Studio 2010\Projects\TestCLR\TestCLR\bin\Release\TestCLR.dll’<br>　　WITH PERMISSION_SET = EXTERNAL_ACCESS;<br>　　–SAFE;<br>　　CREATE PROC dbo.usp_testASEXTERNAL NAME [TestCLR].StoredProcedures.Test;<br>　　EXEC dbo.usp_test;<br>　　USE master;<br>　　BACKUP DATABASE test TO DISK = ‘c:\test.bak’ WITH FORMAT;  </p><p>　　将c:\test.bak copy 到机器B上,然后执行:</p><p>　　USE [master];–还原数据库RESTORE DATABASE test FROM DISK = ‘c:\test.bak’ WITH RECOVERY,MOVE ‘test’ TO ‘E:\data\test.mdf’,MOVE ‘test_log’ TO ‘E:\data\test.ldf’,REPLACE;</p><p>　　–如果没有启用CLR,开启EXEC sp_configure ‘clr enabled’,1RECONFIGURE WITH OVERRIDE; USE test;</p><p>　　–查看程序集,是存在的.SELECT <em> FROM sys.assemblies;SELECT </em> FROM sys.assembly_files;</p><p>　　–还原之后的数据库TRUSTWORTHY 都是OFF的,需要重新设置ALTER DATABASE test SET TRUSTWORTHY ON; USE test;</p><p>　　–执行存储过程EXEC dbo.usp_test;</p><p>　　但是一执行就报错了.</p><p>　　解决方案:</p><p>　　在还原数据库之后,我们可以将数据库的OWNER设置成SA.</p><p>　　exec sp_changedbowner ‘sa’</p><p>　　再调用存储过程就是成功的.</p><p>　　可以查看:KB</p><p>　　后来经过一些整理,发现当SQL CLR 存在EXTERNAL_ACCESS或者是UNSAFE的程序集的时候,SQL Server会检查DBO的SID在sys.databases 和sys.server_principals是否一致.</p><p>　　因此我们可能未必一定要修改成sa 的,只要所有者的SID在sys.databases和sys.server_principals 是一致的,就不出问题.</p><p>　　我们在SSMS里面右键数据库属性-&gt;找到文件选项卡-&gt;发现在所有者(是空的,还原以后原来的SID,数据库所有者在当前的sys.server_principals不匹配的),我们可以在 […] 里面选择一个,具有创建CREATE ASSEMLY 权限的所有者就好,我选择了B\Administrator,然后测试 CLR 存储过程,没问题,</p><p>　　引深:</p><p>　　在SQL Server 复制里面也存在类似的问题,就是我们做 “对等复制” 的时候,会出现DBO不存在,以及sp_replcmd 不存在类似的错误.其实也是因为对等复制初始化订阅是通过 RESTORE 来实现的,因此只要简单的修改数据库所有者 就好了….那么对等复制的问题也就解决了!!</p>]]></content>
     
@@ -33,6 +53,8 @@
     
     </summary>
     
+    
+      <category term="SQL" scheme="http://zhiwu.li/tags/SQL/"/>
     
   </entry>
   

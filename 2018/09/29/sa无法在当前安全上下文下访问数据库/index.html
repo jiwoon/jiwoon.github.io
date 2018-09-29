@@ -85,18 +85,18 @@
 
 
 
-<meta name="description" content="在SQL Server 2005/2008安装后，即记录了计算机名做为 “sql server服务器名”.当修改计算机名时， 需要修改sql server中对应的服务器名， 否则将影响“发布/订阅”，“镜像集群”等功能。 – 检查SQL Server中的“服务器名[/命名实例名]”, 和当前真实的“计算机名[/命名实例名]”。如果修改了计算机名，则这两者即会不一致。 select @@server">
+<meta name="description" content="服务器主体 “sa” 无法在当前安全上下文下访问数据库 “db1”。            sql2008同一服务器附加两个数据库 db1 和db2            db1中建一表A，和一个存储过程A            db2中建有一表B，表B上有一个触发器（insert 触发），和一个存储过程B.            我用管理员sa 用户登录，执行存储过程B，向表B中写入一条数据，">
 <meta name="keywords" content="SQL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SQL Server 服务器名">
-<meta property="og:url" content="http://zhiwu.li/2018/09/29/SQL-Server-Name/index.html">
+<meta property="og:title" content="sa无法在当前安全上下文下访问数据库">
+<meta property="og:url" content="http://zhiwu.li/2018/09/29/sa无法在当前安全上下文下访问数据库/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="在SQL Server 2005/2008安装后，即记录了计算机名做为 “sql server服务器名”.当修改计算机名时， 需要修改sql server中对应的服务器名， 否则将影响“发布/订阅”，“镜像集群”等功能。 – 检查SQL Server中的“服务器名[/命名实例名]”, 和当前真实的“计算机名[/命名实例名]”。如果修改了计算机名，则这两者即会不一致。 select @@server">
+<meta property="og:description" content="服务器主体 “sa” 无法在当前安全上下文下访问数据库 “db1”。            sql2008同一服务器附加两个数据库 db1 和db2            db1中建一表A，和一个存储过程A            db2中建有一表B，表B上有一个触发器（insert 触发），和一个存储过程B.            我用管理员sa 用户登录，执行存储过程B，向表B中写入一条数据，">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-09-29T01:11:29.932Z">
+<meta property="og:updated_time" content="2018-09-29T02:40:34.838Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SQL Server 服务器名">
-<meta name="twitter:description" content="在SQL Server 2005/2008安装后，即记录了计算机名做为 “sql server服务器名”.当修改计算机名时， 需要修改sql server中对应的服务器名， 否则将影响“发布/订阅”，“镜像集群”等功能。 – 检查SQL Server中的“服务器名[/命名实例名]”, 和当前真实的“计算机名[/命名实例名]”。如果修改了计算机名，则这两者即会不一致。 select @@server">
+<meta name="twitter:title" content="sa无法在当前安全上下文下访问数据库">
+<meta name="twitter:description" content="服务器主体 “sa” 无法在当前安全上下文下访问数据库 “db1”。            sql2008同一服务器附加两个数据库 db1 和db2            db1中建一表A，和一个存储过程A            db2中建有一表B，表B上有一个触发器（insert 触发），和一个存储过程B.            我用管理员sa 用户登录，执行存储过程B，向表B中写入一条数据，">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://zhiwu.li/2018/09/29/SQL-Server-Name/"/>
+  <link rel="canonical" href="http://zhiwu.li/2018/09/29/sa无法在当前安全上下文下访问数据库/"/>
 
 
 
 
 
-  <title>SQL Server 服务器名 | 我的博客</title>
+  <title>sa无法在当前安全上下文下访问数据库 | 我的博客</title>
   
 
 
@@ -269,7 +269,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiwu.li/2018/09/29/SQL-Server-Name/">
+    <link itemprop="mainEntityOfPage" href="http://zhiwu.li/2018/09/29/sa无法在当前安全上下文下访问数据库/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lizhiwu">
@@ -286,7 +286,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">SQL Server 服务器名</h1>
+          <h1 class="post-title" itemprop="name headline">sa无法在当前安全上下文下访问数据库</h1>
         
 
         <div class="post-meta">
@@ -298,7 +298,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-29T09:09:16+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-29T10:40:18+08:00">
                 2018-09-29
               </time>
             
@@ -335,7 +335,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  171
+                  312
                 </span>
               
 
@@ -372,10 +372,33 @@
       
 
       
-        <p>在SQL Server 2005/2008安装后，即记录了计算机名做为 “sql server服务器名”.<br>当修改计算机名时， 需要修改sql server中对应的服务器名， 否则将影响“发布/订阅”，“镜像集群”等功能。</p>
-<p>– 检查SQL Server中的“服务器名[/命名实例名]”, 和当前真实的“计算机名[/命名实例名]”。如果修改了计算机名，则这两者即会不一致。</p>
-<p>select @@serverName,  serverproperty(‘serverName’)<br>– 将”服务器名”, 修改为正确的计算机名<br>EXEC sp_dropserver ‘服务器名[/命名实例名]’;           – 即旧的计算机名<br>GO<br>EXEC sp_addserver ‘计算机名[/命名实例名]’, ‘local’; – 即新的计算机名<br>go<br>– 重启SQL Server</p>
+        <p>﻿<strong>服务器主体 “sa” 无法在当前安全上下文下访问数据库 “db1”。</strong><br>            <em>sql2008同一服务器附加两个数据库 db1 和db2<br>            db1中建一表A，和一个存储过程A<br>            db2中建有一表B，表B上有一个触发器（insert 触发），和一个存储过程B.<br>            我用管理员sa 用户登录，执行存储过程B，向表B中写入一条数据，在B表的触发器中调用数据库db1中的存储过程A，<br>            触发器中的调用格式为：<br>            exec db1.dbo.A 参数1,参数2，….<br>            结果出现<br>            消息 916，级别 14，状态 1，过程 TRGDetialsData，第 47 行<br>            服务器主体 “sa” 无法在当前安全上下文下访问数据库 “db1”。<br>            我的sa用户已经是最高权限了，为什么还有这个提示<br>            到底如何在触发器中调用另外一个数据库（同一服务器）中的存储过程</em><br><a id="more"></a><br>            ——解决方案——————–<br>            先执行以下打开TRUSTWORTHY.</p>
+<pre><code>SQL code
+ ALTER DATABASE db1 SET TRUSTWORTHY ON
+ ALTER DATABASE db2 SET TRUSTWORTHY ON
 
+再执行这个,
+
+Use Master
+GO
+EXEC master.dbo.sp_configure &apos;show advanced options&apos;, 1
+
+RECONFIGURE WITH OVERRIDE
+
+GO
+
+
+
+EXEC master.dbo.sp_configure &apos;xp_cmdshell&apos;, 1  --for backup sp LZWMISDBBackup
+
+RECONFIGURE WITH OVERRIDE
+
+GO
+
+
+
+ALTER DATABASE ReportConfigDJ SET TRUSTWORTHY ON     --for use WWALMDB sp APV_GetAlarmDescFromWWALMDB
+</code></pre>
       
     </div>
     
@@ -411,15 +434,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/09/29/数据库还原问题/" rel="next" title="SQL Server Assembly还原数据库后的问题">
+                <i class="fa fa-chevron-left"></i> SQL Server Assembly还原数据库后的问题
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/29/数据库还原问题/" rel="prev" title="SQL Server Assembly还原数据库后的问题">
-                SQL Server Assembly还原数据库后的问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
