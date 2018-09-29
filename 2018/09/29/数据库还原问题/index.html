@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="我的博客">
 <meta property="og:description" content="#SQL Server Assembly还原数据库后的问题　　前段时间给别人做迁移数据库时候,遇到一些问题.大致是,如果备份的数据库存在EXTERNAL_ACCESS 和UNSAFE的程序集,那么在还原的时候程序集会出现一些奇怪的错误: 　　消息 10314，级别 16，状态 11，第 1 行 　　在尝试加载程序集 ID 65536 时 Microsoft .NET Framework 出错。服务">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-09-29T01:22:28.440Z">
+<meta property="og:updated_time" content="2018-09-29T01:24:31.782Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL Server Assembly还原数据库后的问题">
 <meta name="twitter:description" content="#SQL Server Assembly还原数据库后的问题　　前段时间给别人做迁移数据库时候,遇到一些问题.大致是,如果备份的数据库存在EXTERNAL_ACCESS 和UNSAFE的程序集,那么在还原的时候程序集会出现一些奇怪的错误: 　　消息 10314，级别 16，状态 11，第 1 行 　　在尝试加载程序集 ID 65536 时 Microsoft .NET Framework 出错。服务">
@@ -373,8 +373,7 @@
       
         <p>#SQL Server Assembly还原数据库后的问题<br>　　前段时间给别人做迁移数据库时候,遇到一些问题.大致是,如果备份的数据库存在EXTERNAL_ACCESS 和UNSAFE的程序集,那么在还原的时候程序集会出现一些奇怪的错误:</p>
 <p>　　消息 10314，级别 16，状态 11，第 1 行</p>
-<p>　　在尝试加载程序集 ID 65536 时 Microsoft .NET Framework 出错。服务器可能资源不足，或者不信任该程序集，因为它的 PERMISSION_SET 设置为 EXTERNAL_ACCESS 或 UNSAFE。请重新运行查询，或检查有关的文档了解如何解决程序集信任问题。有关此错误的详细信息:</p>
-<p>　　System.IO.FileLoadException: 未能加载文件或程序集“testclr, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null”或它的某一个依赖项。异常来自 HRESULT:0x80FC80F1<br>　　System.IO.FileLoadException: </p>
+<p>　　在尝试加载程序集 ID 65536 时 Microsoft .NET Framework 出错。服务器可能资源不足，或者不信任该程序集，因为它的 PERMISSION_SET 设置为 EXTERNAL_ACCESS 或 UNSAFE。请重新运行查询，或检查有关的文档了解如何解决程序集信任问题。有关此错误的详细信息:<br><a id="more"></a><br>　　System.IO.FileLoadException: 未能加载文件或程序集“testclr, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null”或它的某一个依赖项。异常来自 HRESULT:0x80FC80F1<br>　　System.IO.FileLoadException: </p>
 <p>　　在 System.Reflection.Assembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, Assembly locationHint, StackCrawlMark&amp; stackMark, Boolean throwOnFileNotFound, Boolean forIntrospection) </p>
 <p>　　在 System.Reflection.Assembly.InternalLoad(AssemblyName assemblyRef, Evidence assemblySecurity, StackCrawlMark&amp; stackMark, Boolean forIntrospection) </p>
 <p>　　在 System.Reflection.Assembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark&amp; stackMark, Boolean forIntrospection) </p>
