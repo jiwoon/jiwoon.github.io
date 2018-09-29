@@ -265,6 +265,185 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhiwu.li/2018/09/29/FRP内网穿透工具/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lizhiwu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的知识收集博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/29/FRP内网穿透工具/" itemprop="url">FRP内网穿透工具</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-29T13:04:04+08:00">
+                2018-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  363
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="FRP内网穿透工具"><a href="#FRP内网穿透工具" class="headerlink" title="FRP内网穿透工具"></a>FRP内网穿透工具</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p> <strong>frp 是一个可用于内网穿透的高性能的反向代理应用，支持 tcp, udp, http, https 协议。</strong></p>
+<ul>
+<li><p>利用处于内网或防火墙后的机器，对外网环境提供 http 或 https 服务。</p>
+<ul>
+<li>对于 http, https 服务支持基于域名的虚拟主机，支持自定义域名绑定，使多个域名可以共用一个80端口。</li>
+<li>利用处于内网或防火墙后的机器，对外网环境提供 tcp 和 udp 服务，例如在家里通过 ssh 访问处于公司内网环境内的主机。<h2 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h2>在原有版本的基础上增加了用户和密码功能，服务器每一个终端有一个配置文件，配置文件包含用户名，密码，和开放的端口。增加了安全性<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><strong>将 frps 及 frps.ini 放到具有公网 IP 的机器上。<br>将 frpc 及 frpc.ini 放到处于内网环境的机器上。</strong><br>通过 ssh 访问公司内网机器<br>修改 frps.ini 文件，这里使用了最简化的配置：</li>
+</ul>
+<p>frps.ini</p>
+</li>
+</ul>
+<pre><code>[common]
+bind_port = 7000
+</code></pre><p>启动 frps：</p>
+<pre><code>./frps -c ./frps.ini
+</code></pre><p>修改 frpc.ini 文件，假设 frps 所在服务器的公网 IP 为 x.x.x.x；<br> frpc.ini</p>
+<pre><code>[common]
+server_addr = x.x.x.x
+server_port = 7000
+
+[ssh]
+type = tcp
+local_ip = 127.0.0.1
+local_port = 22
+remote_port = 6000
+</code></pre><p>启动 frpc：<br>./frpc -c ./frpc.ini<br>通过 ssh 访问内网机器，假设用户名为 test：<br>ssh -oPort=6000 <a href="mailto:test@x.x.x.x" target="_blank" rel="noopener">test@x.x.x.x</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://zhiwu.li/2018/09/29/sa无法在当前安全上下文下访问数据库/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -775,7 +954,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -788,7 +967,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -886,7 +1065,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1.4k</span>
+    <span title="Site words total count">1.8k</span>
   
 </div>
 

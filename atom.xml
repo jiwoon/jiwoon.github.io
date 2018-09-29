@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhiwu.li/"/>
-  <updated>2018-09-29T02:40:34.838Z</updated>
+  <updated>2018-09-29T05:15:49.027Z</updated>
   <id>http://zhiwu.li/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>FRP内网穿透工具</title>
+    <link href="http://zhiwu.li/2018/09/29/FRP%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E5%B7%A5%E5%85%B7/"/>
+    <id>http://zhiwu.li/2018/09/29/FRP内网穿透工具/</id>
+    <published>2018-09-29T05:04:04.000Z</published>
+    <updated>2018-09-29T05:15:49.027Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="FRP内网穿透工具"><a href="#FRP内网穿透工具" class="headerlink" title="FRP内网穿透工具"></a>FRP内网穿透工具</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p> <strong>frp 是一个可用于内网穿透的高性能的反向代理应用，支持 tcp, udp, http, https 协议。</strong></p><ul><li><p>利用处于内网或防火墙后的机器，对外网环境提供 http 或 https 服务。</p><ul><li>对于 http, https 服务支持基于域名的虚拟主机，支持自定义域名绑定，使多个域名可以共用一个80端口。</li><li>利用处于内网或防火墙后的机器，对外网环境提供 tcp 和 udp 服务，例如在家里通过 ssh 访问处于公司内网环境内的主机。<h2 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h2>在原有版本的基础上增加了用户和密码功能，服务器每一个终端有一个配置文件，配置文件包含用户名，密码，和开放的端口。增加了安全性<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><strong>将 frps 及 frps.ini 放到具有公网 IP 的机器上。<br>将 frpc 及 frpc.ini 放到处于内网环境的机器上。</strong><br>通过 ssh 访问公司内网机器<br>修改 frps.ini 文件，这里使用了最简化的配置：</li></ul><p>frps.ini</p></li></ul><pre><code>[common]bind_port = 7000</code></pre><p>启动 frps：</p><pre><code>./frps -c ./frps.ini</code></pre><p>修改 frpc.ini 文件，假设 frps 所在服务器的公网 IP 为 x.x.x.x；<br> frpc.ini</p><pre><code>[common]server_addr = x.x.x.xserver_port = 7000[ssh]type = tcplocal_ip = 127.0.0.1local_port = 22remote_port = 6000</code></pre><p>启动 frpc：<br>./frpc -c ./frpc.ini<br>通过 ssh 访问内网机器，假设用户名为 test：<br>ssh -oPort=6000 <a href="mailto:test@x.x.x.x" target="_blank" rel="noopener">test@x.x.x.x</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;FRP内网穿透工具&quot;&gt;&lt;a href=&quot;#FRP内网穿透工具&quot; class=&quot;headerlink&quot; title=&quot;FRP内网穿透工具&quot;&gt;&lt;/a&gt;FRP内网穿透工具&lt;/h1&gt;&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; 
+      
+    
+    </summary>
+    
+    
+      <category term="go" scheme="http://zhiwu.li/tags/go/"/>
+    
+  </entry>
   
   <entry>
     <title>sa无法在当前安全上下文下访问数据库</title>
