@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="我的知识收集博客">
 <meta property="og:description" content="git常用命令总结　　github和gitlab等等一系列的分布式代码托管服务器方便我们开发人员在小组内开发项目，说起分布式代码托管就给大家提一下另外一代码托管SVN,当然他不是分布式的，而是集中式的代码托管，有兴趣的可以查阅资料了解一下，在这里我将着重给大家介绍github这种代码托管如何使用及常用命令 git安装　　我用的电脑是windons系统，请根据你们自己的电脑紫铜安装对应的git版本，">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-10T00:56:12.646Z">
+<meta property="og:updated_time" content="2018-10-10T00:57:56.767Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git命令">
 <meta name="twitter:description" content="git常用命令总结　　github和gitlab等等一系列的分布式代码托管服务器方便我们开发人员在小组内开发项目，说起分布式代码托管就给大家提一下另外一代码托管SVN,当然他不是分布式的，而是集中式的代码托管，有兴趣的可以查阅资料了解一下，在这里我将着重给大家介绍github这种代码托管如何使用及常用命令 git安装　　我用的电脑是windons系统，请根据你们自己的电脑紫铜安装对应的git版本，">
@@ -377,8 +377,7 @@
 <p><strong>ssh -key配置</strong></p>
 <p>　　在这一步我已经默认你安装好了Git，打开Git，在Git命令行输入cd  ~/.ssh检查电脑本机是否有ssh key设置，注意: .ssh是隐藏文件，一般在电脑C/用户/Administrator下面就能够找到。</p>
 <p>　　一般情况下 ，之前没有用过git的同学电脑本机一般不会 有ssh key 的，下面我讲给大家介绍如何配置ssh key</p>
-<p>　　<strong>1、进入路径下，必须保证当前路径 在路径下</strong></p>
-<p>　　在git命令行敲击 ssh-keygen -t  rsa -C “<a href="mailto:xxx.@yyy.zzz" target="_blank" rel="noopener">xxx.@yyy.zzz</a>“ //建议写自己真实有效的邮箱地址。注意：在敲代码是不要将双引号也敲击进去。</p>
+<p>　　<strong>1、进入路径下，必须保证当前路径 在路径下</strong><br><a id="more"></a><br>　　在git命令行敲击 ssh-keygen -t  rsa -C “<a href="mailto:xxx.@yyy.zzz" target="_blank" rel="noopener">xxx.@yyy.zzz</a>“ //建议写自己真实有效的邮箱地址。注意：在敲代码是不要将双引号也敲击进去。</p>
 <p>　　然后命令行会出现如下代码：</p>
 <p>　　Enter file in which to save the key (/c/Users/xxxx_000/.ssh/id_rsa):   //此时我们什么都不需要操作，直接回车就好</p>
 <p>　　Enter passphrase (empty for no passphrase):            //此时要你输入码（可以为空，直接回车就好，也可以输入你的密码，这个密码在你最后把本地资源推送到github上面的时候回会让你填写密码，此时密码隐藏，你输入进去是看不到的）</p>
