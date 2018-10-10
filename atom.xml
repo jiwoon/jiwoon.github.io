@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhiwu.li/"/>
-  <updated>2018-09-29T05:51:41.896Z</updated>
+  <updated>2018-10-10T00:56:12.646Z</updated>
   <id>http://zhiwu.li/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>git命令</title>
+    <link href="http://zhiwu.li/2018/10/10/git%E5%91%BD%E4%BB%A4/"/>
+    <id>http://zhiwu.li/2018/10/10/git命令/</id>
+    <published>2018-10-10T00:38:04.000Z</published>
+    <updated>2018-10-10T00:56:12.646Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="git常用命令总结"><a href="#git常用命令总结" class="headerlink" title="git常用命令总结"></a>git常用命令总结</h1><p>　　github和gitlab等等一系列的分布式代码托管服务器方便我们开发人员在小组内开发项目，说起分布式代码托管就给大家提一下另外一代码托管SVN,当然他不是分布式的，而是集中式的代码托管，有兴趣的可以查阅资料了解一下，在这里我将着重给大家介绍github这种代码托管如何使用及常用命令</p><h2 id="git安装"><a href="#git安装" class="headerlink" title="git安装"></a>git安装</h2><p>　　我用的电脑是windons系统，请根据你们自己的电脑紫铜安装对应的git版本，去Git官网上下载安装即可，在这里将不给大家做详细的说明，安装步骤请自行百度。</p><p><strong>ssh -key配置</strong></p><p>　　在这一步我已经默认你安装好了Git，打开Git，在Git命令行输入cd  ~/.ssh检查电脑本机是否有ssh key设置，注意: .ssh是隐藏文件，一般在电脑C/用户/Administrator下面就能够找到。</p><p>　　一般情况下 ，之前没有用过git的同学电脑本机一般不会 有ssh key 的，下面我讲给大家介绍如何配置ssh key</p><p>　　<strong>1、进入路径下，必须保证当前路径 在路径下</strong></p><p>　　在git命令行敲击 ssh-keygen -t  rsa -C “<a href="mailto:xxx.@yyy.zzz" target="_blank" rel="noopener">xxx.@yyy.zzz</a>“ //建议写自己真实有效的邮箱地址。注意：在敲代码是不要将双引号也敲击进去。</p><p>　　然后命令行会出现如下代码：</p><p>　　Enter file in which to save the key (/c/Users/xxxx_000/.ssh/id_rsa):   //此时我们什么都不需要操作，直接回车就好</p><p>　　Enter passphrase (empty for no passphrase):            //此时要你输入码（可以为空，直接回车就好，也可以输入你的密码，这个密码在你最后把本地资源推送到github上面的时候回会让你填写密码，此时密码隐藏，你输入进去是看不到的）</p><p>　　Enter same passphrase again: //再次确认密码（如果你第一次有输入密码，这次就再输一次，如果没有直接回车就行了）</p><p>　　Your identification has been saved in /c/Users/xxxx_000/.ssh/id_rsa. //生成的密钥</p><p>　　Your public key has been saved in /c/Users/xxxx_000/.ssh/id_rsa.pub. //生成的公钥</p><p>　　The key fingerprint is:</p><p>　　e3:51:33:xx:xx:xx:xx:xxx:61:28:83:e2:81 <a href="mailto:xxxxxx@yy.com" target="_blank" rel="noopener">xxxxxx@yy.com</a></p><p>　　本机已完成ssh key设置，其存放路径为：c:/Users/xxxx_000/.ssh/下。其中xxxx_000为你的用户名。</p><p>　　<strong>2、添加ssh key 到Github上</strong><br>　　首先登陆Github,点击右上角的“▼”→Settings→SSH kyes→Add SSH key。<br>　　然后在打开c:/Users/xxxx_000/.ssh里面的id_rsa.pub文件，全选复制公钥内容<br>　　也可以在git bush中的命令行输入cat ~/.ssh/id_rsa.pub，将得到公钥</p><p>　　Title自定义，将公钥粘贴到GitHub中Add an SSH key的key输入框，最后“Add Key“</p><p>　　<strong>3、配置账户</strong></p><p>　　$ git config –global user.name “your_username” #设置用户名</p><p>　　$ git config –global user.email “your_registered_github_Email” #设置邮箱地址(建议用注册giuhub的邮箱)</p><p>　　<strong>4、测试ssh keys是否设置成功。</strong></p><p>　　</p><pre><code>ssh -T git@github.com</code></pre><p>　　The authenticity of host ‘github.com (192.30.252.129)’ can’t be established.</p><p>　　RSA key fingerprint is 16:27:xx:xx:xx:xx:xx:4d:eb:df:a6:48.</p><p>　　Are you sure you want to continue connecting (yes/no)? yes #确认你是否继续联系，输入yes</p><p>　　Warning: Permanently added ‘github.com,192.30.252.129’ (RSA) to the list of known hosts.</p><p>　　Enter passphrase for key ‘/c/Users/xxxx_000/.ssh/id_rsa’: #生成ssh kye是密码为空则无此项，若设置有密码则有此项且，输入生成ssh key时设置的密码即可。</p><p>　　Hi xxx! You’ve successfully authenticated, but GitHub does not provide shell access. #出现此句话，说明设置成功。</p><p>　　到这里，git相关的所有配置已经完成，下面我将给大家介绍最常使用的命令</p><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>　　<strong>1、创建仓库（公开）</strong></p><p>　　点击github右上角的+里面的new repository<br>　　在repository name栏中输入仓库的名称<br>　　description 栏中可以设置仓库的说明<br>　　piblic（公开）通用 private（非公开）收费<br>　　勾选Initialize this repository with a README ，如果想向GitHub添加手中已有的Git仓库，建议不要勾选<br>　　Add.gitignore 下拉框中选择要使用的框架<br>　　Add a license选择添加许可协议文件<br>　　点击create repository按钮，完成仓库的创建</p><p>　　</p><p><strong>2、克隆之前首先要选择克隆文件的位置（cd）</strong></p><p>　　clone已有仓库<br>　　git clone <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:XXX/yyyy.git //XXX为github的用户名，yyy为仓库名　　</p><p><strong>3、在对应的文件夹中添加新有项</strong></p><p>　　git status<br><strong>4、提交</strong><br>　　git add mmm.sss //mmm为文件名称，sss为文件拓展名（常用git add .）<br>　　git commit -m “hhh” //hhh为git commit 提交信息，是对这个提交的概述</p><p>　　git log//用于查看提交日志<br>　　git push //更新GitHub上的仓库</p><p>　　<strong>5、用git创建仓库</strong></p><p>　　</p><pre><code>mkdir nnn //仓库名　　cd hhh　　git init //初始化仓库　　git status //查看仓库状态　　touch README.md //创建READEME.md文件　　git add ERADME.md //添加ERADME.md至暂存区　　git commit -m &quot;hhh&quot; //如果想要提交信息记录的更详细，请不要加 -m　　git log --pretty=short //加--pretty=short 只显示提交信息的第一行　　git log ggg //ggg是指指定的文件或目录，用于查看指定的目录、文件的日志　　git log -p //查看提交所带来的改动　　git log -p ggg //查看指定文件的改动　　git diff //可以查看工作树，暂存区，最新提交之间的差别　　git diff HEAD //查看工作树与最新提交的差别</code></pre><p>　　<strong>6、分支操作</strong></p><p>　</p><p>　git branch //显示分支一览表，同时确认当前所在的分支</p><p>　　git checkout -b aaa //创建名为aaa的分支，并且切换到aaa分支<br>　　（git branch aaa //创建名为aaa的分支<br>　　git checkout aaa // 切换到aaa分支<br>　　）能和git branch -b aaa 得到同样的效果</p><p>　　git checkout - //切换到上一分支</p><p>　　<strong>7、合并分支</strong></p><p>　　git checkout master //切换到master分支</p><p>　　git marge –no–ff aaa // 加–no–ff 参数可以在历史记录中明确地记录本次分支的合并</p><p>　　git log –graph //以图表形式查看分支</p><p>　　<strong>8、更改提交的操作</strong></p><p>　　git reset //回溯历史版本</p><p>　　git reset –hrad //回溯到指定状态，只要提供目标时间点的哈希值</p><p>　　<strong>9、推进历史</strong></p><p>　　git reflog //查看仓库的操作日志，找到要推历史的哈希值</p><p>　　git checkout master</p><p>　　git reset –hrad ddd //ddd为要推进历史的哈希值</p><p>　　<strong>10、修改提交信息 git commit –amend</strong></p><p>　　压缩历史 git rebase -i 错字漏字等失误称作typo</p><p>　　根据以前的步骤在GitHub上创建仓库，应于本地的仓库名相同 GitHub上面创建的仓库的路径为<a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>: 用户名/仓库名.git</p><p>　　git remote add eee <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>: 用户名/仓库名.git //添加远程仓库，并将<a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>: 用户名/仓库名.git远程仓库的名称改为eee</p><p>　　git push -u eee master //推送至远程仓库 master分支下 -u 参数可以在推送的同时，将eee仓库的master分支设置为本地仓库的当前分<br>　　支的的upstream（上游）。添加这个参数，将来运行git pull命令从远程仓库获取内容时，本地仓库的这个分支就可以直接从eee的master<br>分支中获取内容</p><p>　　git checkout -b feature d eee/feature d //获取远程的feature d分支到本地仓库，-b参数后面是本地仓库中新建的仓库的名称</p><p>　　git pull eee feature d //将本地的feature d分支更新为最新状态</p><p>　　在GitHub上面查看两个分支之间的差别，只需要在地址栏中输入<a href="http://github.com/用户名/仓库名/分支1...分支2" target="_blank" rel="noopener">http://github.com/用户名/仓库名/分支1...分支2</a></p><p>　　<strong>11、查看master分支在最近七天内的差别</strong><br>　　<a href="http://github.com/用户名/仓库名/master@{7.day.ago}...master" target="_blank" rel="noopener">http://github.com/用户名/仓库名/master@{7.day.ago}...master</a> （同样，day，week，month，year都是可以哒）</p><p>　　<strong>12、查看与指定日期之间的差别</strong><br>　　<a href="http://github.com/用户名/仓库名/master@{xxxx-xx-xx}...master" target="_blank" rel="noopener">http://github.com/用户名/仓库名/master@{xxxx-xx-xx}...master</a> （xxxx-xx-xx代表年月日）</p><p>　　到这里，git相关的命令已经全部介绍完成，剩下的就靠大家自己学习了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;git常用命令总结&quot;&gt;&lt;a href=&quot;#git常用命令总结&quot; class=&quot;headerlink&quot; title=&quot;git常用命令总结&quot;&gt;&lt;/a&gt;git常用命令总结&lt;/h1&gt;&lt;p&gt;　　github和gitlab等等一系列的分布式代码托管服务器方便我们开发人员在小组
+      
+    
+    </summary>
+    
+    
+      <category term="git" scheme="http://zhiwu.li/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>FRP内网穿透工具</title>
